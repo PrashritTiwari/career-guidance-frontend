@@ -1,5 +1,5 @@
 import "./Logo.css";
-import careerLogo from "../../../Assets/career-logo.png";
+import careerLogo from "../../../assets/career-logo.png";
 
 export default function Logo(){
     return(
