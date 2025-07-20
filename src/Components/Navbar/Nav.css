@@ -1,0 +1,41 @@
+.nav-container {
+  background: #fffce8;
+  color: #0f2d52;
+  border-bottom: 1px solid #8f8d8d;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbackground {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Homeb-container {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  margin-right: 50px;
+}
+
+@media (max-width: 768px) {
+  .navbackground {
+    width: 90%;
+  }
+  .Homeb-container {
+    gap: 10px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .questionaries-button {
+    display: none;
+  }
+}

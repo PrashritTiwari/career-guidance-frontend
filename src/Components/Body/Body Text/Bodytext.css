@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.bodytext {
+  display: flex;
+  flex-direction: column;
+}
+
+.textbig {
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+}
+
+.textbig2 {
+  background: linear-gradient(90deg, #b657f0, #47015d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  line-height: 72px;
+  min-height: 72px;
+}
+
+.cursor {
+  margin-left: 4px;
+  width: 2px;
+  height: 60px;
+  background-color: #c0a5ff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.textsmall {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .textbig {
+    font-size: 24px;
+  }
+  .textbig2 {
+    font-size: 20px;
+  }
+  .textsmall {
+    font-size: 16px;
+  }
+  .bodytext{
+    justify-content: center;
+    align-items: center;
+    margin-bottom:10px;
+  }
+}

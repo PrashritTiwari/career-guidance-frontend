@@ -1,0 +1,19 @@
+.body-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bodypic {
+  height: 400px;
+  width: 400px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .bodypic {
+    height: 300px;
+    width: 300px;
+  }
+}

@@ -1,0 +1,213 @@
+.footer-container {
+  background: linear-gradient(135deg, rgba(125, 49, 142, 0.85), rgba(49, 20, 60, 0.85), rgba(30, 30, 80, 0.8), rgba(72, 102, 146, 0.8));
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  border-top: 2px solid rgba(255, 255, 255, 0.05);
+  color: #f1f1f1;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+  position: relative;
+  max-width: 100vw;     
+  overflow-x: hidden;   
+  box-sizing: border-box; 
+  padding-left: 1rem;  
+  padding-right: 1rem;
+}
+
+.footer-heading {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #fff;
+  animation: fadeIn 1s ease-out;
+}
+
+.footer-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-form input,
+.footer-form textarea {
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.footer-form input:focus,
+.footer-form textarea:focus {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.rating-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.stars {
+  display: flex;
+  gap: 8px;
+}
+
+.star {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.star:hover {
+  transform: scale(1.3);
+}
+
+.star.active {
+  color: #ffc107;
+  text-shadow: 0 0 10px #ffc107;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #4c84ff, #8854ff);
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #3c6df0, #7834f7);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(136, 84, 255, 0.4);
+}
+
+.footer-thankyou {
+  font-size: 1.2rem;
+  color: #9cf39b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.checkmark {
+  font-size: 3rem;
+  animation: pop 0.6s ease;
+}
+
+.footer-credits {
+  margin-top: 40px;
+  font-size: 0.9rem;
+  color: #aaa;
+  animation: fadeIn 2s ease-in;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.7s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.7s ease forwards;
+}
+
+
+@media (max-width: 600px) {
+  .footer-form {
+    padding: 0 10px;
+  }
+
+  .footer-heading {
+    font-size: 1.5rem;
+  }
+
+  .submit-btn {
+    font-size: 1rem;
+  }
+}
+
+.footer-card-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  flex: 1 1 400px;
+  min-width: 320px;
+  max-width: 500px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.footer-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  color: #fff;
+  animation: fadeIn 1s ease;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row input {
+  flex: 1;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-card {
+    flex: 1 1 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+
+  .footer-card-wrapper {
+    padding: 0 1rem;
+  }
+}

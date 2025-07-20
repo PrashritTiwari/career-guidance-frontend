@@ -1,0 +1,9 @@
+.Homeb{
+    position: relative;
+    z-index: 10;
+    
+}
+.linktext{
+    font-size:18px;
+    color:black;
+}

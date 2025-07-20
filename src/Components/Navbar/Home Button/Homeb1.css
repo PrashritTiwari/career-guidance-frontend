@@ -1,0 +1,11 @@
+.linktext{
+    font-size:13px;
+    color:white;
+}
+.linktext:hover{
+    color:white;
+}
+.button{
+    width:140px;
+    height:40px;
+}
