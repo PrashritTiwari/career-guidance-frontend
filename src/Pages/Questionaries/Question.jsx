@@ -2,8 +2,10 @@ import { useState, useEffect, useRef } from "react";
 import "./Question.css";
 import Nav from "../../Components/Navbar/Nav.jsx";
 import "./../../Components/Navbar/Nav.css";
+import ReactMarkdown from 'react-markdown';
 
-const API_URL = "https://career-guidance-backend-yvaw.onrender.com";
+// Use environment variable for API URL, fallback to Render URL if not set
+const API_URL = import.meta.env.VITE_API_URL || "https://career-guidance-backend-yvaw.onrender.com";
 
 export default function Question() {
   const [sessionId, setSessionId] = useState(null);
@@ -118,9 +120,23 @@ export default function Question() {
            All done! Here are your career recommendations:
           <br />
           <br />
-          <pre style={{ whiteSpace: "pre-wrap", color: "#111", background: "#fff8", padding: "1rem", borderRadius: "10px" }}>
-            {recommendations || "Loading recommendations..."}
-          </pre>
+          {recommendations ? (
+            <div className="recommendations-markdown-container left-align-markdown">
+              <ReactMarkdown
+                components={{
+                  h3: ({node, ...props}) => <h3 style={{color: '#4f0563', marginTop: '1.5em', textAlign: 'left'}} {...props} />,
+                  ul: ({node, ...props}) => <ul style={{marginLeft: '1.5em', marginBottom: '1em', textAlign: 'left'}} {...props} />,
+                  li: ({node, ...props}) => <li style={{marginBottom: '0.5em', textAlign: 'left'}} {...props} />,
+                  strong: ({node, ...props}) => <strong style={{color: '#5e0996'}} {...props} />,
+                  p: ({node, ...props}) => <p style={{marginBottom: '0.7em', textAlign: 'left'}} {...props} />,
+                  em: ({node, ...props}) => <em style={{color: '#333'}} {...props} />,
+                  code: ({node, ...props}) => <code style={{background: '#f4f4f4', padding: '2px 4px', borderRadius: '4px'}} {...props} />,
+                }}
+              >{recommendations}</ReactMarkdown>
+            </div>
+          ) : (
+            <div style={{color: '#888', fontStyle: 'italic'}}>Loading recommendations...</div>
+          )}
         </div>
       )}
     </div>
