@@ -4,7 +4,6 @@ import Nav from "../../Components/Navbar/Nav.jsx";
 import "./../../Components/Navbar/Nav.css";
 import ReactMarkdown from 'react-markdown';
 
-// Use environment variable for API URL, fallback to Render URL if not set
 const API_URL = import.meta.env.VITE_API_URL || "https://career-guidance-backend-yvaw.onrender.com";
 
 export default function Question() {
@@ -18,7 +17,6 @@ export default function Question() {
   const [recommendations, setRecommendations] = useState("");
   const inputRef = useRef(null);
 
-  // Start session on page load
   useEffect(() => {
     const startSession = async () => {
       setLoading(true);
@@ -36,7 +34,6 @@ export default function Question() {
     startSession();
   }, []);
 
-  // Submit current answer
   const submitAnswer = async () => {
     if (!answer.trim()) return;
 
@@ -56,7 +53,7 @@ export default function Question() {
     if (data.status === "complete") {
       setComplete(true);
       setQuestion("");
-      fetchRecommendations(); // optional: fetch immediately
+      fetchRecommendations();
     } else {
       setQuestion(data.question);
       setQuestionNumber(data.question_number);
@@ -65,7 +62,6 @@ export default function Question() {
     setLoading(false);
   };
 
-  // Get recommendations
   const fetchRecommendations = async () => {
     setLoading(true);
     const res = await fetch(`${API_URL}/recommend?session_id=${sessionId}`);
@@ -116,26 +112,31 @@ export default function Question() {
           </button>
         </form>
       ) : (
-        <div className="question-submit-message animate-gradient-text">
-           All done! Here are your career recommendations:
-          <br />
-          <br />
+        <div className="chat-style-response-container">
+          <div className="chat-style-header">
+            ✅ All done! Here are your career recommendations:
+          </div>
+
           {recommendations ? (
-            <div className="recommendations-markdown-container left-align-markdown">
+            <div className="chat-style-response">
               <ReactMarkdown
                 components={{
-                  h3: ({node, ...props}) => <h3 style={{color: '#4f0563', marginTop: '1.5em', textAlign: 'left'}} {...props} />,
-                  ul: ({node, ...props}) => <ul style={{marginLeft: '1.5em', marginBottom: '1em', textAlign: 'left'}} {...props} />,
-                  li: ({node, ...props}) => <li style={{marginBottom: '0.5em', textAlign: 'left'}} {...props} />,
-                  strong: ({node, ...props}) => <strong style={{color: '#5e0996'}} {...props} />,
-                  p: ({node, ...props}) => <p style={{marginBottom: '0.7em', textAlign: 'left'}} {...props} />,
-                  em: ({node, ...props}) => <em style={{color: '#333'}} {...props} />,
-                  code: ({node, ...props}) => <code style={{background: '#f4f4f4', padding: '2px 4px', borderRadius: '4px'}} {...props} />,
+                  h3: ({ node, ...props }) => <h3 className="markdown-heading" {...props} />,
+                  ul: ({ node, ...props }) => <ul className="markdown-list" {...props} />,
+                  li: ({ node, ...props }) => <li className="markdown-list-item" {...props} />,
+                  strong: ({ node, ...props }) => <strong className="markdown-strong" {...props} />,
+                  p: ({ node, ...props }) => <p className="markdown-paragraph" {...props} />,
+                  em: ({ node, ...props }) => <em className="markdown-em" {...props} />,
+                  code: ({ node, ...props }) => <code className="markdown-code" {...props} />,
                 }}
-              >{recommendations}</ReactMarkdown>
+              >
+                {recommendations}
+              </ReactMarkdown>
             </div>
           ) : (
-            <div style={{color: '#888', fontStyle: 'italic'}}>Loading recommendations...</div>
+            <div style={{ color: "#aaa", fontStyle: "italic", textAlign: "center", marginTop: "1rem" }}>
+              Loading recommendations...
+            </div>
           )}
         </div>
       )}
